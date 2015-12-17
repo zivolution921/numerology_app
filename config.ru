@@ -2,6 +2,7 @@ require 'pathname'
 require 'pg'
 require 'active_record'
 require 'logger'
+require 'sinatra'
 
 ## Load all files and configure the db
 
@@ -34,3 +35,9 @@ ActiveRecord::Base.establish_connection :adapter  => 'postgresql',
                                         :host => 'localhost',
                                         :username => DB_USERNAME,
                                         :password => DB_PASSWORD
+
+
+
+
+
+
