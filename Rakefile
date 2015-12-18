@@ -67,8 +67,3 @@ desc "Run the specs"
 RSpec::Core::RakeTask.new(:spec)
 task :default  => :specs
 
-# Will this not work?
-#desc "Run the specs"
-#task 'specs' do
-#  exec "rspec spec"
-#end

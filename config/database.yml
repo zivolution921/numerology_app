@@ -1,0 +1,15 @@
+condevelopment:
+  adapter: postgresql
+  database: numerology_development
+  pool: 5
+  host: localhost
+  username: ziv
+  password: 
+    
+test:
+  adapter: postgresql
+  database: numerology_test
+  pool: 5
+  host: localhost
+  username: ziv
+  password: 
