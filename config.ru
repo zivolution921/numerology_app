@@ -1,43 +1,14 @@
-require 'pathname'
-require 'pg'
-require 'active_record'
-require 'logger'
+require 'sinatra/base'
 require 'sinatra'
+require 'sinatra/activerecord'
+require 'rake'
 
-## Load all files and configure the db
+require ::File.expand_path('../app',  __FILE__)
 
-APP_ROOT = Pathname.new(File.expand_path(File.dirname(__FILE__)))
+set :app_file, __FILE__
 
-APP_NAME = APP_ROOT.basename.to_s
-
-DB_PATH  = APP_ROOT.join('db', APP_NAME + "_development.db").to_s
-
-DB_NAME = APP_NAME + "_development.db"
-
-TEST_DB_NAME = APP_NAME + "_test.db"
-
-DB_USERNAME = 'ziv'
-
-DB_PASSWORD = ''
-
-if ENV['DEBUG']
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
+configure do
+  set :views, File.join(Sinatra::Application.root, "app", "views")
 end
 
-
-Dir[APP_ROOT.join('models', '*.rb')].each do |model_file|
-  filename = File.basename(model_file).gsub('.rb', '')
-  autoload ActiveSupport::Inflector.camelize(filename), model_file
-end
-
-ActiveRecord::Base.establish_connection :adapter  => 'postgresql',
-                                        :database => DB_NAME,
-                                        :host => 'localhost',
-                                        :username => DB_USERNAME,
-                                        :password => DB_PASSWORD
-
-
-
-
-
-
+run Sinatra::Application
