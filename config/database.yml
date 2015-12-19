@@ -1,4 +1,4 @@
-condevelopment:
+development:
   adapter: postgresql
   database: numerology_development
   pool: 5
