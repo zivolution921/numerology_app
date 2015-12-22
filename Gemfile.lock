@@ -16,6 +16,7 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     builder (3.2.2)
+    byebug (8.2.1)
     diff-lcs (1.2.5)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -58,6 +59,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  byebug
   faker
   pg
   rack

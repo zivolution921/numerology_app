@@ -6,6 +6,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 require "sinatra/activerecord"
+require 'byebug'
 
 require 'erb'
 
@@ -22,3 +23,4 @@ Dir[APP_ROOT.join('app/models', '*.rb')].each do |model_file|
   autoload ActiveSupport::Inflector.camelize(filename), model_file
 end
 
+include ApplicationHelper
